@@ -4,5 +4,8 @@ before_install:
   - echo $PATH
 install:
   - ./run.cmd
-env:
 script: 
+  - export PATH=$PATH:$PWD/platform/linux_x86_64/bin
+  - echo $PATH
+  - cd ./server
+  - npm install eslint
