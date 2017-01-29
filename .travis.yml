@@ -1,9 +1,8 @@
 language: node_js
-node_js: 
-  - "node"
+before_install:
+  - ./run.cmd
+  - echo $PWD
+  - echo $PATH
 install:
-  - npm install -g mocha
 env:
-  - TEST_DIR=server
-  - TEST_DIR=client
-script: cd $TEST_DIR && mocha ./test/*.js
+script: 
