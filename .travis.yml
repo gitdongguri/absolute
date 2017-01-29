@@ -1,8 +1,8 @@
 language: node_js
 before_install:
-  - ./run.cmd
   - echo $PWD
   - echo $PATH
 install:
+  - ./run.cmd
 env:
 script: 
