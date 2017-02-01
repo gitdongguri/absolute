@@ -1,0 +1,20 @@
+#!/bin/bash
+source ./scripts/path_info
+
+function run_gulp() {
+  platform_name=$(get_platform_name)
+  # FIXME(zino): Once we finish to implement NodeJS Downloader via script,
+  # the following platform name should be |windows_x86_64| or |windows_x86|.
+  # Please see: https://github.com/romandev/absolute/issues/19
+  if [ "$platform_name" = "node-v7.3.0-win-x64" \
+      -o "$platform_name" = "node-v7.3.0-win-x86" ]; then
+    #TODO(nadongguri)
+  else
+    PATH=$PATH:$(get_node_dir)/bin
+    node_module_bin_dir=$(npm bin --prefix $(get_server_dir))
+    node $node_module_bin_dir/gulp --gulpfile $(get_server_dir)/gulpfile.js
+    #npm run-script gulp --prefix $(get_server_dir) #TODO(nadongguri)
+  fi
+}
+
+run_gulp
